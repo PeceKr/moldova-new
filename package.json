@@ -1,0 +1,32 @@
+{
+  "name": "moldova-new",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=dev nodemon index.js",
+    "prod": "NODE_ENV=prod EXPOSE_URL=https://6677ef5b.ngrok.io node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PeceKr/moldova-new.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PeceKr/moldova-new/issues"
+  },
+  "homepage": "https://github.com/PeceKr/moldova-new#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "mongodb": "^6.20.0",
+    "nodemon": "^3.1.10",
+    "viber-bot": "^1.0.18",
+    "winston": "^3.18.3"
+  }
+}

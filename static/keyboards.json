@@ -1,0 +1,203 @@
+{
+  "ro-android": {
+    "main_menu": {
+      "Type": "keyboard",
+      "Revision": 1,
+      "minApiVersion": 6,
+      "Buttons": [
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_UPLOAD_DOCS",
+          "Text": "<font color='#FFFFFF'><b>Încarcă documente</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_CANCEL_REQUEST",
+          "Text": "<font color='#FFFFFF'><b>Anulare cerere</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_MODIFY_NUMBER_SUM",
+          "Text": "<font color='#FFFFFF'><b>Modificare număr/sumă</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_CONTRACT_STATUS",
+          "Text": "<font color='#FFFFFF'><b>Statut contractului</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 6,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_CALL_CLIENT",
+          "Text": "<font color='#FFFFFF'><b>Apelează clientul</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        }
+      ]
+    }
+  },
+  "ro-ios": {
+    "main_menu": {
+      "Type": "keyboard",
+      "Revision": 1,
+      "minApiVersion": 6,
+      "Buttons": [
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_UPLOAD_DOCS",
+          "Text": "<font color='#FFFFFF'><b>Încarcă documente</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_CANCEL_REQUEST",
+          "Text": "<font color='#FFFFFF'><b>Anulare cerere</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_MODIFY_NUMBER_SUM",
+          "Text": "<font color='#FFFFFF'><b>Modificare număr/sumă</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 3,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_CONTRACT_STATUS",
+          "Text": "<font color='#FFFFFF'><b>Statut contractului</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        },
+        {
+          "Columns": 6,
+          "Rows": 1,
+          "BgColor": "#ed1c23",
+          "ActionType": "reply",
+          "ActionBody": "BTN_CALL_CLIENT",
+          "Text": "<font color='#FFFFFF'><b>Apelează clientul</b></font>",
+          "TextVAlign": "middle",
+          "TextHAlign": "center",
+          "TextSize": "large",
+          "Frame": {
+            "BorderWidth": 10,
+            "CornerRadius": 10,
+            "BorderColor": "#ed1c23"
+          }
+        }
+      ]
+    }
+  },
+  "ro-subscribe": {
+    "Type": "keyboard",
+    "Revision": 1,
+    "minApiVersion": 6,
+    "Buttons": [
+      {
+        "Columns": 6,
+        "Rows": 1,
+        "BgColor": "#ed1c23",
+        "ActionType": "reply",
+        "ActionBody": "subscribe-first-time",
+        "Text": "<font color='#FFFFFF'><b>Abonati-va</b></font>",
+        "TextVAlign": "middle",
+        "TextHAlign": "center",
+        "TextSize": "large",
+        "Frame": {
+          "BorderWidth": 10,
+          "CornerRadius": 10,
+          "BorderColor": "#ed1c23"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "WelcomeText": {
+    "ro": "Bună ziua şi bine aţi venit la iute!🌶"
+  },
+  "AskQuestionText": {
+    "ro": "Introduceți un comentariu sau o întrebare"
+  },
+  "MessageReceivedText": {
+    "ro": "Mesajul a fost primit"
+  },
+  "Subscribe": {
+    "ro": "Faceți clic pe Abonare"
+  }
+}
