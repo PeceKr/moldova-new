@@ -25,26 +25,26 @@ async function executeMessage(message, response, bot, user) {
     case "BTN_UPLOAD_DOCS":
       await bot.sendMessage(
         response.userProfile,
-        new TextMessage(`Bună ziua, vă rugăm să urmați pașii:
+        new TextMessage(
+          `Bună ziua, vă rugăm să urmați pașii:
+      
+1. Accesați pagina IuteCredit Partner UI.  
+2. Găsiți clientul dvs.  
+3. Apăsați butonul – Gestionează documentele.  
+4. Apăsați butonul – Încarcă.
 
-                        1.Accesați pagina IuteCredit Partner UI.
-
-                        2. Găsiți clientul dvs.
-
-                        3. Apăsați butonul - Gestioneaza documentele.
-
-                        4. Apăsați butonul – Încărcați
-
-                        * În cazul in care nu aveți acces la Partner UI, vă rugăm să atașați documentul aici.`, SAMPLE_KEYBOARD)
+\* În cazul în care nu aveți acces la Partner UI, vă rugăm să atașați documentul aici.`,
+          SAMPLE_KEYBOARD
+        )
       );
       break;
+
 
     case "BTN_CANCEL_REQUEST":
       await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua ,va rugăm să inițiați anularea cererii prin intermediul sistemului 1C sau prin Partener UI.`, SAMPLE_KEYBOARD));
       break;
 
     case "BTN_MODIFY_NUMBER_SUM":
-      // Call center phone – may open dialer if Viber supports tel: URL on the device
       await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua, în cazul în care Dvs doriți să modificați suma creditului, vă rugăm să indicați nume/prenume, IDNP-ul clientului, și suma pentru modificare
 
 În cazul în care Dvs doriți să modificați numărul de telefon, vă rugăm sa indicați numărul nou al clientului`, SAMPLE_KEYBOARD));
@@ -64,8 +64,13 @@ async function executeMessage(message, response, bot, user) {
       break;
 
     default:
-      // Not a button payload => treat as free text
-      console.log("📝 User typed:", message.text);
+      // Not a button payload => treat as free text      
+      await external.sendToMoldova(
+        user.viber_id,
+        user.name,
+        message.text,
+        message.url
+      );
       bot.sendMessage(
         response.userProfile,
         new KeyBoard(SAMPLE_KEYBOARD, null, null, null, 6)
@@ -74,12 +79,7 @@ async function executeMessage(message, response, bot, user) {
   }
 
   await dbSubscribers.updateCurrentStep(user.viber_id, null);
-  // await external.sendToMoldova(
-  //   user.viber_id,
-  //   user.name,
-  //   message.text,
-  //   message.url
-  // );
+
 }
 
 
