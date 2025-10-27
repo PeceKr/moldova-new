@@ -52,28 +52,73 @@ async function sendToMoldova(viber_id, viber_name, text, image_url) {
   const url = process.env.MOLDOVA_PUBLIC_URL;
   const config = {
     headers: { Authorization: `Bearer ${process.env.MOLDOVA_TOKEN}` },
-    httpsAgent: new https.Agent({
-      rejectUnauthorized: false,
-    }),
-  };
-  const bodyParams = {
-    viber_id,
-    viber_name,
-    text,
-    image_url,
-    to: "moldova",
+    httpsAgent: new https.Agent({ rejectUnauthorized: false }),
   };
 
+  const bodyParams = { viber_id, viber_name, text, image_url, to: "moldova" };
+
   try {
-    const call = await axios.post(url, bodyParams, config);
-    logs.insertLog(
-      { status: call.status, config: call.config },
-      enums.LogLevels.Info
-    );
+    const res = await axios.post(url, bodyParams, config);
+
+    // axios objects have circular refs — strip them:
+    const {
+      httpsAgent,
+      adapter,
+      transformRequest,
+      transformResponse,
+      transitional,
+      // anything else sketchy goes here
+      ...safeConfig
+    } = res.config || {};
+
+    // keep response data size, not the whole body (optional)
+    const safeLog = {
+      status: res.status,
+      statusText: res.statusText,
+      // plain headers are fine
+      responseHeaders: res.headers,
+      // only safe bits of config
+      config: {
+        url: safeConfig.url,
+        method: safeConfig.method,
+        baseURL: safeConfig.baseURL,
+        timeout: safeConfig.timeout,
+        headers: safeConfig.headers,
+        maxBodyLength: safeConfig.maxBodyLength,
+        maxContentLength: safeConfig.maxContentLength,
+      },
+      // helpful but safe
+      dataLength: typeof res.data === "string"
+        ? res.data.length
+        : Buffer.isBuffer(res.data)
+        ? res.data.length
+        : undefined,
+    };
+
+    logs.insertLog(safeLog, enums.LogLevels.Info);
   } catch (error) {
-    console.log(error);
+    // Axios errors have a safe .toJSON()
+    const safeError = error && typeof error.toJSON === "function"
+      ? error.toJSON()
+      : {
+          message: error?.message,
+          code: error?.code,
+          name: error?.name,
+          stack: error?.stack,
+          isAxiosError: !!error?.isAxiosError,
+          responseStatus: error?.response?.status,
+          responseDataSnippet:
+            typeof error?.response?.data === "string"
+              ? error.response.data.slice(0, 500)
+              : undefined,
+        };
+
+    console.log("sendToMoldova error:", safeError);
+    // optionally persist errors too
+    try { await logs.insertLog({ error: safeError }, enums.LogLevels.Error); } catch {}
   }
 }
+
 
 async function sendToMoldovaFile(viber_id, viber_name, file_message) {
   const appDir = dirname(require.main.filename);

@@ -1,9 +1,8 @@
-var DbConnection = require("./client");
-var ObjectId = require("mongodb").ObjectID;
+const { getDb } = require("./client");
 
 async function insertLog(log, log_level) {
   try {
-    let db = await DbConnection.Get();
+    const db = await getDb();
     return await db
       .collection("logs")
       .insertOne({ log: log, log_level: log_level, date: new Date() });
