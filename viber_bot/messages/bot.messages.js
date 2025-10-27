@@ -11,7 +11,8 @@ const FileMessage = require("viber-bot").Message.File;
 
 async function executeMessage(message, response, bot, user) {
   console.log(message);
-  let language = response.userProfile.language == "ru" ? "ru" : "ro";
+  // let language = response.userProfile.language == "ru" ? "ru" : "ro";
+  let language = "ro";
   var SAMPLE_KEYBOARD =
     keyboards[
     `${language}-${utils.getOsType(user.user_details.primary_device_os)}`
@@ -64,7 +65,7 @@ async function executeMessage(message, response, bot, user) {
       break;
 
     default:
-      // Not a button payload => treat as free text      
+      
       await external.sendToMoldova(
         user.viber_id,
         user.name,
