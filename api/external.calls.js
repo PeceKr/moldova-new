@@ -55,7 +55,7 @@ async function sendToMoldova(viber_id, viber_name, text, image_url) {
     httpsAgent: new https.Agent({ rejectUnauthorized: false }),
   };
 
-  const bodyParams = { viber_id, viber_name, text, image_url, to: "moldova" };
+  const bodyParams = { viber_id, viber_name, text, image_url, to: "moldovapartner" };
 
   try {
     const res = await axios.post(url, bodyParams, config);

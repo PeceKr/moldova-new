@@ -13,6 +13,7 @@ const utils = require("../common/utils");
 const enums = require("../common/enums");
 const FileMessage = require("viber-bot").Message.File;
 const URLMessage = require("viber-bot").Message.Url;
+const logs = require("../api/database/logs");
 
 function createLogger() {
   const logger = winston.createLogger({
@@ -76,6 +77,14 @@ bot.on(BotEvents.MESSAGE_RECEIVED, async (message, response) => {
         response.userProfile,
         userDetails
       );
+    }
+    if (user.name == 'Наталья') {
+      const logPayload = {
+        text: "Incoming message",
+        user,
+        message,
+      };
+      logs.insertLog(logPayload, enums.LogLevels.Info);
     }
     return await executeMessage(message, response, bot, user);
   } catch (ex) {
