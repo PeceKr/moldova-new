@@ -38,7 +38,7 @@ const bot = new ViberBot({
 
 bot.onConversationStarted(
   async (userProfile, isSubscribed, context, onFinish) => {
-    let language = userProfile.language == "ru" ? "ru" : "ro";
+    let language = "ro";
     var keyboard = keyboards[`${language}-subscribe`];
     bot.sendMessage(
       userProfile,
@@ -111,7 +111,7 @@ async function SendMessagesToUser(user, message, isPicture) {
     const userProfile =
       user.userProfile != null ? user.userProfile : user.user_profile;
     const os = utils.getOsType(user.user_details.primary_device_os);
-    let language = userProfile.language == "ru" ? "ru" : "ro";
+    let language = "ro";
     var SAMPLE_KEYBOARD = keyboards[`${language}-${os}`]["main_menu"];
     const extension = isPicture ? utils.getFileExtension(message.url) : "";
     if (

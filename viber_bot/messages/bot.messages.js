@@ -42,7 +42,7 @@ async function executeMessage(message, response, bot, user) {
 
 
     case "BTN_CANCEL_REQUEST":
-      await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua ,va rugăm să inițiați anularea cererii prin intermediul sistemului 1C sau prin Partener UI.`, SAMPLE_KEYBOARD));
+      await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua, vă rugăm să inițiați anularea cererii prin intermediul sistemului 1C sau prin Partener UI`, SAMPLE_KEYBOARD));
       break;
 
     case "BTN_MODIFY_NUMBER_SUM":
@@ -52,11 +52,11 @@ async function executeMessage(message, response, bot, user) {
       break;
 
     case "BTN_CONTRACT_STATUS":
-      await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua, va rugăm să ne oferiți numărul contractului, și solicitarea Dvs.`, SAMPLE_KEYBOARD));
+      await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua, vă rugăm să ne oferiți numărul contractului și solicitarea Dvs`, SAMPLE_KEYBOARD));
       break;
 
     case "BTN_CALL_CLIENT": {
-      await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua , vă rugăm să indicați nume/prenume, IDNP-ul, și numărul de telefon al clientului.`, SAMPLE_KEYBOARD));
+      await bot.sendMessage(response.userProfile, new TextMessage(`Bună ziua, vă rugăm să indicați numele și prenumele, IDNP-ul și numărul de telefon al clientului`, SAMPLE_KEYBOARD));
       break;
     }
 
